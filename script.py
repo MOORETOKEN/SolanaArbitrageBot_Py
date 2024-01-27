@@ -145,7 +145,7 @@ async def swap(update: Update, context: CallbackContext):
                             )
                             profit = token_to_usdc.get('data')[0].get('otherAmountThreshold') - trade_amount
                             update.message.reply_text(f"Approx Profit made: {profit / USDC_BASE}")
-                            
+
 async def show_last_trade_stats(update: Update, context: CallbackContext):
     # Implement logic to show the last trade statistics
     update.message.reply_text("Last trade statistics: [Implement your logic here]")
@@ -163,4 +163,8 @@ def create_wallet(update: Update, context: CallbackContext) -> None:
     WALLET = Keypair.generate()
     update.message.reply_text(f"New wallet created.\nPublic Key: {WALLET.public_key}")
 
-def show_wallet(update: Update, context: CallbackContext) ->
+def show_wallet(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(f"Current Wallet's Public Key: {WALLET.public_key}")
+
+if __name__ == '__main__':
+    updater = Updater(token='6570174976:AAFKv6aT3ouXs46s69mJpXo847ymT
